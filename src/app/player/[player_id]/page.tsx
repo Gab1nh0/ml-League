@@ -133,8 +133,8 @@ export default function Player({ params }: { params: { player_id: string } }) {
                     <p className={styles.playername}>{dataP.length > 0 ? dataP[0].player_nickname : 'N/A'}</p>
                     <p className={styles.playertext}>{dataP.length > 0 ? dataP[0].position : 'N/A'}</p>
                 </div>
-                
-                <img className={styles.playerimg} src={dataP.length > 0 ? dataP[0].img : undefined} />
+                    
+                <img className={styles.playerimg} src={dataP.length > 0 ? dataP[0].img : 'https://firebasestorage.googleapis.com/v0/b/footballleague-479b8.appspot.com/o/img-players%2Fnan.png?alt=media&token=9191fe8f-e0cf-48af-92cd-7436ab22f219'} />
             </div>
             <div className={styles.TopPlayersDer}>
                 <div className={styles.TopPlayersChart}>

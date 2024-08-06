@@ -47,7 +47,7 @@ export default function Teams() {
                             <h1>{item.Squad}</h1>
                         </Link>
                     </div>
-                    <br /> {/* Add line break between each team container */}
+                    <br />
                 </div>
             ))}
         </div>

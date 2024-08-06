@@ -11,6 +11,9 @@ export default function Predictor() {
     const [rankingDif, setRankingDif] = useState(1.11);
     const [prediction, setPrediction] = useState(null);
     const [probability, setProbability] = useState(null);
+    const [Empate, setEmpate] = useState(null);
+    const [Derrota, setDerrota] = useState(null);
+    const [Victoria, setVictoria] = useState(null);
 
     useEffect(() => {
       setRankingDif(ranking / ranking1);
@@ -27,6 +30,9 @@ export default function Predictor() {
             const response = await axios.post('http://127.0.0.1:5000/predict', data);
             setPrediction(response.data.prediction);
             setProbability(response.data.probability);
+            setEmpate(response.data.Empate);
+            setDerrota(response.data.Derrota);
+            setVictoria(response.data.Victoria);
           } catch (error) {
             console.error('Error making prediction:', error);
           }
@@ -64,12 +70,19 @@ export default function Predictor() {
       </form>
       <br /><br />
       {prediction !== null && (
-        <div>
-          <h3>Resultado de la Predicción</h3>
-          <p>Predicción: {prediction}</p>
-          <p>Probabilidad: {probability.join(', ')}</p>
-        </div>
-      )}
+      <div>
+        <h3>Resultado de la Predicción</h3>
+        
+        {prediction === -1 && <p>Predicción: Empate</p>}
+        {prediction === 0 && <p>Predicción: Derrota</p>}
+        {prediction === 1 && <p>Predicción: Victoria</p>}
+
+        <p>Empate: {Empate}</p>
+        <p>Derrota: {Derrota}</p>
+        <p>Victoria: {Victoria}</p>
+      </div>
+)}
+
     </div>
         </>
     );

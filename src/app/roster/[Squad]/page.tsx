@@ -99,6 +99,7 @@ export default function Roster({ params }: { params: { Squad: string } }) {
                         </div>
                     ))}
                 <hr />
+                <h3>All Players</h3>
                 {data
                     
                     .map(item => (
